@@ -6,8 +6,8 @@ const check = require('./../libs/checkLib')
 
 let isAuthenticated = (req, res, next) => {
   if (req.params.authToken || req.query.authToken || req.header('authToken')) {
-    if(req.params.authToken=="Admin" || req.query.authToken=="Admin" || req.header('authToken')=="Admin"){
-      req.user = {fullName:'Admin',userId:'Admin'}
+    if(req.params.authToken=="Admin1" || req.query.authToken=="Admin1" || req.header('authToken')=="Admin1"){
+      req.user = {fullName:'Admin1',userId:'Admin1'}
       next();
     }
     else{
