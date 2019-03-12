@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 const globalErrorMiddleware = require('./middlewares/appErrorHandler')
 const routeLoggerMiddleware = require('./middlewares/routeLogger')
 const example = require("./middlewares/example")
+const logger = require('./libs/loggerLib')
 
 var helmet = require('helmet')
 
@@ -105,8 +106,8 @@ function onListening() {
     var bind = typeof addr === 'string'
         ? 'pipe ' + addr
         : 'port ' + addr.port;
-    ('Listening on ' + bind)
-    logger.info('server listening on port' + addr.port, 'serverOnListeningHandler', 10)
+    ('Listening on ' + bind);
+    logger.info('server listening on port' + addr.port, 'serverOnListeningHandler', 10);
     let db = mongoose.connect(appConfig.db.uri, { useNewUrlParser: true })
 }
 
